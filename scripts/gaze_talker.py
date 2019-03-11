@@ -9,8 +9,8 @@ def talker(x=1, y=1):
     r = rospy.Rate(10)
 
     msg = Gaze()
-    msg.x = x
-    msg.y = y
+    msg.x = float(x)
+    msg.y = float(y)
     msg.label = get_label(x, y)
     msg.timestamp = rospy.get_rostime()
 

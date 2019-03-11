@@ -9,11 +9,11 @@ def talker(x=1, y=1):
     r = rospy.Rate(10)
 
     msg = Gaze()
-    msg.x = float(x)
-    msg.y = float(y)
+    msg.x = x
+    msg.y = y
     msg.label = get_label(x, y)
-    msg.timestamp = rospy.get_rostime()
-
+    msg.header.stamp = rospy.get_rostime()
+    
     while not rospy.is_shutdown():
         rospy.loginfo(msg)
         pub.publish(msg)
